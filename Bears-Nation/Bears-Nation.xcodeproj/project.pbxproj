@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B7AD42E1256890D9008312F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AD42E0256890D9008312F3 /* AppDelegate.swift */; };
-		B7AD42E3256890D9008312F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AD42E2256890D9008312F3 /* SceneDelegate.swift */; };
-		B7AD42E5256890D9008312F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AD42E4256890D9008312F3 /* ViewController.swift */; };
-		B7AD42E8256890D9008312F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AD42E6256890D9008312F3 /* Main.storyboard */; };
-		B7AD42EA256890DC008312F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AD42E9256890DC008312F3 /* Assets.xcassets */; };
-		B7AD42ED256890DC008312F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AD42EB256890DC008312F3 /* LaunchScreen.storyboard */; };
+		B751CF1B256892B300037506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B751CF1A256892B300037506 /* AppDelegate.swift */; };
+		B751CF1D256892B300037506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B751CF1C256892B300037506 /* SceneDelegate.swift */; };
+		B751CF1F256892B300037506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B751CF1E256892B300037506 /* ViewController.swift */; };
+		B751CF22256892B300037506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B751CF20256892B300037506 /* Main.storyboard */; };
+		B751CF24256892B400037506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B751CF23256892B400037506 /* Assets.xcassets */; };
+		B751CF27256892B400037506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B751CF25256892B400037506 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B7AD42DD256890D9008312F3 /* Bears Nation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bears Nation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7AD42E0256890D9008312F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B7AD42E2256890D9008312F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B7AD42E4256890D9008312F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B7AD42E7256890D9008312F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B7AD42E9256890DC008312F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B7AD42EC256890DC008312F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B7AD42EE256890DC008312F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B751CF17256892B300037506 /* Bears-Nation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bears-Nation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B751CF1A256892B300037506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B751CF1C256892B300037506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B751CF1E256892B300037506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B751CF21256892B300037506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B751CF23256892B400037506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B751CF26256892B400037506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B751CF28256892B400037506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B7AD42DA256890D9008312F3 /* Frameworks */ = {
+		B751CF14256892B300037506 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,72 +37,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B7AD42D4256890D9008312F3 = {
+		B751CF0E256892B300037506 = {
 			isa = PBXGroup;
 			children = (
-				B7AD42DF256890D9008312F3 /* Bears Nation */,
-				B7AD42DE256890D9008312F3 /* Products */,
+				B751CF19256892B300037506 /* Bears-Nation */,
+				B751CF18256892B300037506 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B7AD42DE256890D9008312F3 /* Products */ = {
+		B751CF18256892B300037506 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B7AD42DD256890D9008312F3 /* Bears Nation.app */,
+				B751CF17256892B300037506 /* Bears-Nation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B7AD42DF256890D9008312F3 /* Bears Nation */ = {
+		B751CF19256892B300037506 /* Bears-Nation */ = {
 			isa = PBXGroup;
 			children = (
-				B7AD42E0256890D9008312F3 /* AppDelegate.swift */,
-				B7AD42E2256890D9008312F3 /* SceneDelegate.swift */,
-				B7AD42E4256890D9008312F3 /* ViewController.swift */,
-				B7AD42E6256890D9008312F3 /* Main.storyboard */,
-				B7AD42E9256890DC008312F3 /* Assets.xcassets */,
-				B7AD42EB256890DC008312F3 /* LaunchScreen.storyboard */,
-				B7AD42EE256890DC008312F3 /* Info.plist */,
+				B751CF1A256892B300037506 /* AppDelegate.swift */,
+				B751CF1C256892B300037506 /* SceneDelegate.swift */,
+				B751CF1E256892B300037506 /* ViewController.swift */,
+				B751CF20256892B300037506 /* Main.storyboard */,
+				B751CF23256892B400037506 /* Assets.xcassets */,
+				B751CF25256892B400037506 /* LaunchScreen.storyboard */,
+				B751CF28256892B400037506 /* Info.plist */,
 			);
-			path = "Bears Nation";
+			path = "Bears-Nation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B7AD42DC256890D9008312F3 /* Bears Nation */ = {
+		B751CF16256892B300037506 /* Bears-Nation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7AD42F1256890DC008312F3 /* Build configuration list for PBXNativeTarget "Bears Nation" */;
+			buildConfigurationList = B751CF2B256892B400037506 /* Build configuration list for PBXNativeTarget "Bears-Nation" */;
 			buildPhases = (
-				B7AD42D9256890D9008312F3 /* Sources */,
-				B7AD42DA256890D9008312F3 /* Frameworks */,
-				B7AD42DB256890D9008312F3 /* Resources */,
+				B751CF13256892B300037506 /* Sources */,
+				B751CF14256892B300037506 /* Frameworks */,
+				B751CF15256892B300037506 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Bears Nation";
-			productName = "Bears Nation";
-			productReference = B7AD42DD256890D9008312F3 /* Bears Nation.app */;
+			name = "Bears-Nation";
+			productName = "Bears-Nation";
+			productReference = B751CF17256892B300037506 /* Bears-Nation.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B7AD42D5256890D9008312F3 /* Project object */ = {
+		B751CF0F256892B300037506 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "WashU Athletics";
 				TargetAttributes = {
-					B7AD42DC256890D9008312F3 = {
+					B751CF16256892B300037506 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
-			buildConfigurationList = B7AD42D8256890D9008312F3 /* Build configuration list for PBXProject "Bears Nation" */;
+			buildConfigurationList = B751CF12256892B300037506 /* Build configuration list for PBXProject "Bears-Nation" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +110,55 @@
 				en,
 				Base,
 			);
-			mainGroup = B7AD42D4256890D9008312F3;
-			productRefGroup = B7AD42DE256890D9008312F3 /* Products */;
+			mainGroup = B751CF0E256892B300037506;
+			productRefGroup = B751CF18256892B300037506 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B7AD42DC256890D9008312F3 /* Bears Nation */,
+				B751CF16256892B300037506 /* Bears-Nation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B7AD42DB256890D9008312F3 /* Resources */ = {
+		B751CF15256892B300037506 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7AD42ED256890DC008312F3 /* LaunchScreen.storyboard in Resources */,
-				B7AD42EA256890DC008312F3 /* Assets.xcassets in Resources */,
-				B7AD42E8256890D9008312F3 /* Main.storyboard in Resources */,
+				B751CF27256892B400037506 /* LaunchScreen.storyboard in Resources */,
+				B751CF24256892B400037506 /* Assets.xcassets in Resources */,
+				B751CF22256892B300037506 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B7AD42D9256890D9008312F3 /* Sources */ = {
+		B751CF13256892B300037506 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7AD42E5256890D9008312F3 /* ViewController.swift in Sources */,
-				B7AD42E1256890D9008312F3 /* AppDelegate.swift in Sources */,
-				B7AD42E3256890D9008312F3 /* SceneDelegate.swift in Sources */,
+				B751CF1F256892B300037506 /* ViewController.swift in Sources */,
+				B751CF1B256892B300037506 /* AppDelegate.swift in Sources */,
+				B751CF1D256892B300037506 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B7AD42E6256890D9008312F3 /* Main.storyboard */ = {
+		B751CF20256892B300037506 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B7AD42E7256890D9008312F3 /* Base */,
+				B751CF21256892B300037506 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B7AD42EB256890DC008312F3 /* LaunchScreen.storyboard */ = {
+		B751CF25256892B400037506 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B7AD42EC256890DC008312F3 /* Base */,
+				B751CF26256892B400037506 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B7AD42EF256890DC008312F3 /* Debug */ = {
+		B751CF29256892B400037506 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +226,7 @@
 			};
 			name = Debug;
 		};
-		B7AD42F0256890DC008312F3 /* Release */ = {
+		B751CF2A256892B400037506 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,12 +280,12 @@
 			};
 			name = Release;
 		};
-		B7AD42F2256890DC008312F3 /* Debug */ = {
+		B751CF2C256892B400037506 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Bears Nation/Info.plist";
+				INFOPLIST_FILE = "Bears-Nation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -297,12 +297,12 @@
 			};
 			name = Debug;
 		};
-		B7AD42F3256890DC008312F3 /* Release */ = {
+		B751CF2D256892B400037506 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Bears Nation/Info.plist";
+				INFOPLIST_FILE = "Bears-Nation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,25 +317,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B7AD42D8256890D9008312F3 /* Build configuration list for PBXProject "Bears Nation" */ = {
+		B751CF12256892B300037506 /* Build configuration list for PBXProject "Bears-Nation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B7AD42EF256890DC008312F3 /* Debug */,
-				B7AD42F0256890DC008312F3 /* Release */,
+				B751CF29256892B400037506 /* Debug */,
+				B751CF2A256892B400037506 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7AD42F1256890DC008312F3 /* Build configuration list for PBXNativeTarget "Bears Nation" */ = {
+		B751CF2B256892B400037506 /* Build configuration list for PBXNativeTarget "Bears-Nation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B7AD42F2256890DC008312F3 /* Debug */,
-				B7AD42F3256890DC008312F3 /* Release */,
+				B751CF2C256892B400037506 /* Debug */,
+				B751CF2D256892B400037506 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B7AD42D5256890D9008312F3 /* Project object */;
+	rootObject = B751CF0F256892B300037506 /* Project object */;
 }

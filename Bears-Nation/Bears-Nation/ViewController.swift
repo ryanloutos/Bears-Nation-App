@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Bears Nation
+//  Bears-Nation
 //
 //  Created by Nao Yanase on 11/20/20.
 //  Copyright © 2020 WashU Athletics. All rights reserved.
