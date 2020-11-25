@@ -40,6 +40,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="4vi-vp-pvb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="mRa-kf-lEA">
                                         <rect key="frame" x="46.666666666666664" y="0.0" width="282" height="413"/>
@@ -69,6 +73,7 @@
                     <navigationItem key="navigationItem" title="Bear's Nation" id="LWH-7u-jgI"/>
                     <connections>
                         <outlet property="collectionView" destination="j9f-E4-Ygn" id="Ju6-mp-5pN"/>
+                        <outlet property="spinner" destination="4vi-vp-pvb" id="lwi-dT-Ic9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

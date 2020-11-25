@@ -22,6 +22,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var articles: [APIResults] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
@@ -55,10 +57,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func fetchMovies() {
         print("here")
         guard let url = URL(string: "https://bears-nation-api.herokuapp.com/articles") else {return}
+        spinner.startAnimating()
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: url) else {return}
+            self.articles = try! JSONDecoder().decode([APIResults].self, from: data)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.spinner.stopAnimating()
+            }
+        }
         
-            
-        guard let data = try? Data(contentsOf: url) else {return}
-        self.articles = try! JSONDecoder().decode([APIResults].self, from: data)
     }
     
     func setupCollectionView() {
