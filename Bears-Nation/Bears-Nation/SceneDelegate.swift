@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Bears-Nation
 //
-//  Created by Nao Yanase on 11/20/20.
+//  Created by Nao Yanase on 11/24/20.
 //  Copyright © 2020 WashU Athletics. All rights reserved.
 //
 
