@@ -13,30 +13,36 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     struct APIResults:Decodable {
         let _id: String
-        let title: String
-        let content: String
+        let title:String
+        let date_posted:String
+        let content:String
+        let __v: Int
     }
     
-    var articles: APIResults? = APIResults(_id: "", title: "", content: "")
+    var articles: [APIResults] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyArticleNames.count
+        return articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
+        // from Michael Ginn
+        cell.contentView.subviews.forEach {$0.removeFromSuperview()}
         
-        
+
         let titleView = UIView(frame: CGRect(x: 0, y: cell.bounds.size.height*3/4, width: cell.bounds.size.width, height: cell.bounds.size.height/4))
         titleView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         let articleTitle = UILabel(frame: CGRect(x: 0, y: 0, width: titleView.bounds.size.width, height: titleView.bounds.size.height))
-        articleTitle.text = dummyArticleNames[indexPath.row]
+        articleTitle.text = articles[indexPath.row].title
         articleTitle.textAlignment = .center
-        articleTitle.textColor = .black
+        articleTitle.textColor = .white
+        articleTitle.font = UIFont(name: "Gill Sans", size: 15)
+        articleTitle.numberOfLines = 5
         
         titleView.addSubview(articleTitle)
         
@@ -47,16 +53,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func fetchMovies() {
+        print("here")
         guard let url = URL(string: "https://bears-nation-api.herokuapp.com/articles") else {return}
         
-        DispatchQueue.global().async {
-            do {
-                guard let data = try? Data(contentsOf: url) else {return}
-                print(data)
-                self.articles = try? JSONDecoder().decode(APIResults.self, from: data)
-                print(self.articles)
-            }
-        }
+            
+        guard let data = try? Data(contentsOf: url) else {return}
+        self.articles = try! JSONDecoder().decode([APIResults].self, from: data)
     }
     
     func setupCollectionView() {
