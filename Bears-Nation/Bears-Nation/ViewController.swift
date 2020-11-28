@@ -66,6 +66,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
     func fetchArticles() {
         // get the articles
         guard let url = URL(string: "https://bears-nation-api.herokuapp.com/articles") else {return}
