@@ -10,11 +10,11 @@ import UIKit
 
 class DetailedViewController: UIViewController {
 
-    var article = Article!
+    var article: Article!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     

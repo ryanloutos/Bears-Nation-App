@@ -67,7 +67,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let curArticle = articles[indexPath.row]
         
+        let indArticle = Article(id: curArticle._id, title: curArticle.title, date_posted: curArticle.date_posted, content: curArticle.content, image: imageCache[indexPath.row])
+        
+        let articleVC = IndArticleViewController()
+        articleVC.article = indArticle
+
+        navigationController?.pushViewController(articleVC, animated: true)
     }
     
     func fetchArticles() {
