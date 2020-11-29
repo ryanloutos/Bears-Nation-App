@@ -13,6 +13,9 @@
 		B758B27C256DDB6B006EF5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B758B27A256DDB6B006EF5DC /* Main.storyboard */; };
 		B758B27E256DDB6F006EF5DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B758B27D256DDB6F006EF5DC /* Assets.xcassets */; };
 		B758B281256DDB6F006EF5DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B758B27F256DDB6F006EF5DC /* LaunchScreen.storyboard */; };
+		CB714B82257329280049A640 /* db.json in Resources */ = {isa = PBXBuildFile; fileRef = CB714B81257329280049A640 /* db.json */; };
+		CB714B8425740C570049A640 /* tableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8325740C570049A640 /* tableViewHandler.swift */; };
+		CB714B8625740F9C0049A640 /* messageBoardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8525740F9C0049A640 /* messageBoardDetail.swift */; };
 		CBA9FB2025719F8900961437 /* MessageBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA9FB1F25719F8900961437 /* MessageBoard.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		B758B27D256DDB6F006EF5DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B758B280256DDB6F006EF5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B758B282256DDB6F006EF5DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB714B81257329280049A640 /* db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = db.json; path = "Bears-Nation/db.json"; sourceTree = "<group>"; };
+		CB714B8325740C570049A640 /* tableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewHandler.swift; sourceTree = "<group>"; };
+		CB714B8525740F9C0049A640 /* messageBoardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageBoardDetail.swift; sourceTree = "<group>"; };
 		CBA9FB1F25719F8900961437 /* MessageBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +48,7 @@
 		B758B268256DDB6B006EF5DC = {
 			isa = PBXGroup;
 			children = (
+				CB714B81257329280049A640 /* db.json */,
 				B758B273256DDB6B006EF5DC /* Bears-Nation */,
 				B758B272256DDB6B006EF5DC /* Products */,
 			);
@@ -66,6 +73,8 @@
 				B758B27F256DDB6F006EF5DC /* LaunchScreen.storyboard */,
 				B758B282256DDB6F006EF5DC /* Info.plist */,
 				CBA9FB1F25719F8900961437 /* MessageBoard.swift */,
+				CB714B8525740F9C0049A640 /* messageBoardDetail.swift */,
+				CB714B8325740C570049A640 /* tableViewHandler.swift */,
 			);
 			path = "Bears-Nation";
 			sourceTree = "<group>";
@@ -128,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB714B82257329280049A640 /* db.json in Resources */,
 				B758B281256DDB6F006EF5DC /* LaunchScreen.storyboard in Resources */,
 				B758B27E256DDB6F006EF5DC /* Assets.xcassets in Resources */,
 				B758B27C256DDB6B006EF5DC /* Main.storyboard in Resources */,
@@ -142,8 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B758B279256DDB6B006EF5DC /* ViewController.swift in Sources */,
+				CB714B8625740F9C0049A640 /* messageBoardDetail.swift in Sources */,
 				B758B275256DDB6B006EF5DC /* AppDelegate.swift in Sources */,
 				CBA9FB2025719F8900961437 /* MessageBoard.swift in Sources */,
+				CB714B8425740C570049A640 /* tableViewHandler.swift in Sources */,
 				B758B277256DDB6B006EF5DC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
