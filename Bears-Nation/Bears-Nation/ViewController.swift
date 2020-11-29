@@ -67,15 +67,39 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let curArticle = articles[indexPath.row]
         
-        let indArticle = Article(id: curArticle._id, title: curArticle.title, date_posted: curArticle.date_posted, content: curArticle.content, image: imageCache[indexPath.row])
-        
-        let articleVC = IndArticleViewController()
-        articleVC.article = indArticle
+        DispatchQueue.global().async {
+            let curArticle = self.articles[indexPath.row]
+                   
+            let modifiedContent = self.modifyContent(content: curArticle.content)
+           
+            let indArticle = Article(id: curArticle._id, title: curArticle.title, date_posted: curArticle.date_posted, content: modifiedContent, image: self.imageCache[indexPath.row])
+           
+            let articleVC = IndArticleViewController()
+            articleVC.article = indArticle
+            
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(articleVC, animated: true)
+            }
+        }
+       
 
-        navigationController?.pushViewController(articleVC, animated: true)
     }
+    
+    // append a newline after every newline
+    func modifyContent(content: String) -> String {
+            var newContent = ""
+            for i in 0..<content.count - 1 {
+                
+                let startIdx = content.index(content.startIndex, offsetBy: i)
+                newContent.append(content[startIdx])
+                if content[startIdx].isNewline {
+                    newContent.append("\n")
+                }
+            }
+            return newContent
+        }
+
     
     func fetchArticles() {
         // get the articles
