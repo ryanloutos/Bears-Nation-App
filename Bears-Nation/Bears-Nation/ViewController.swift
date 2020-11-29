@@ -20,6 +20,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     var articles: [APIResults] = []
+    var imageCache: [UIImage?] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -35,6 +36,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // from Michael Ginn
         cell.contentView.subviews.forEach {$0.removeFromSuperview()}
         
+        // if the image doesn't exist, simply display green UIView
+        if (imageCache[indexPath.row] != nil) {
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
+            imageView.image = imageCache[indexPath.row]
+            
+            cell.contentView.addSubview(imageView)
+        }
+        else {
+            let blankView = UIView(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
+            blankView.backgroundColor = UIColor(named: "WashUGreen")
+            cell.contentView.addSubview(blankView)
+        }
 
         let titleView = UIView(frame: CGRect(x: 0, y: cell.bounds.size.height*3/4, width: cell.bounds.size.width, height: cell.bounds.size.height/4))
         titleView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -49,24 +62,72 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         titleView.addSubview(articleTitle)
         
         cell.contentView.addSubview(titleView)
-        cell.backgroundColor = UIColor(named: "WashUGreen")
     
         return cell
     }
     
-    func fetchMovies() {
-        print("here")
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        DispatchQueue.global().async {
+            let curArticle = self.articles[indexPath.row]
+                   
+            let modifiedContent = self.modifyContent(content: curArticle.content)
+           
+            let indArticle = Article(id: curArticle._id, title: curArticle.title, date_posted: curArticle.date_posted, content: modifiedContent, image: self.imageCache[indexPath.row])
+           
+            let articleVC = IndArticleViewController()
+            articleVC.article = indArticle
+            
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(articleVC, animated: true)
+            }
+        }
+       
+
+    }
+    
+    // append a newline after every newline
+    func modifyContent(content: String) -> String {
+            var newContent = ""
+            for i in 0..<content.count - 1 {
+                
+                let startIdx = content.index(content.startIndex, offsetBy: i)
+                newContent.append(content[startIdx])
+                if content[startIdx].isNewline {
+                    newContent.append("\n")
+                }
+            }
+            return newContent
+        }
+
+    
+    func fetchArticles() {
+        // get the articles
         guard let url = URL(string: "https://bears-nation-api.herokuapp.com/articles") else {return}
         spinner.startAnimating()
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else {return}
             self.articles = try! JSONDecoder().decode([APIResults].self, from: data)
+            let cache = self.cacheImages()
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 self.spinner.stopAnimating()
+                self.imageCache = cache
             }
         }
-        
+    }
+    
+    func cacheImages() -> [UIImage?] {
+        // get the images for each article
+        var cache: [UIImage?] = []
+        let curData = articles
+        for i in 0..<(curData.count) {
+            guard let url = URL(string: "https://bears-nation-api.herokuapp.com/articles/image/" + curData[i]._id) else {cache.append(nil); continue}
+            guard let data = try? Data(contentsOf: url) else {cache.append(nil); continue}
+            guard let image = UIImage(data: data) else {cache.append(nil); continue}
+            cache.append(image)
+        }
+        return cache
     }
     
     func setupCollectionView() {
@@ -79,7 +140,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupCollectionView()
-        fetchMovies()
+        fetchArticles()
         
     }
 
