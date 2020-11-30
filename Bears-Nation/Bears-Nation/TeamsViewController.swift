@@ -17,6 +17,7 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let __v: Int
     }
     
+    var indexClicked: IndexPath!
     var teams: [TeamsAPI] = []
     var combined: [[TeamsAPI]] = []
     
@@ -94,6 +95,25 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.imageView!.image = UIImage(named: "Volleyball")
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indexClicked = indexPath
+        performSegue(withIdentifier: "IndTeamsViewController", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Teams"
+        navigationItem.backBarButtonItem = backItem
+        let detailedV = segue.destination as? IndTeamsViewController
+        detailedV?.teamName = combined[indexClicked.section][indexClicked.row].sport
+        if indexClicked.section == 0 {
+            detailedV?.male = true
+        }
+        else {
+            detailedV?.male = false
+        }
     }
     
     func fetchTeams() {
