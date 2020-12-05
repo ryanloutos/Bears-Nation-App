@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		052F02AC25719FA000B7C62D /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F02AB25719FA000B7C62D /* TeamsViewController.swift */; };
+		05C68F1B257AF08600EF9253 /* IndAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */; };
 		05D02FE92574AE5700B6C455 /* IndTeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */; };
 		B758B275256DDB6B006EF5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B274256DDB6B006EF5DC /* AppDelegate.swift */; };
 		B758B277256DDB6B006EF5DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B276256DDB6B006EF5DC /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		052F02AB25719FA000B7C62D /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
+		05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndAthleteViewController.swift; sourceTree = "<group>"; };
 		05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndTeamsViewController.swift; sourceTree = "<group>"; };
 		B758B271256DDB6B006EF5DC /* Bears-Nation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bears-Nation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B758B274256DDB6B006EF5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				CB714B8525740F9C0049A640 /* messageBoardDetail.swift */,
 				CB714B8325740C570049A640 /* tableViewHandler.swift */,
 				05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */,
+				05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */,
 			);
 			path = "Bears-Nation";
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				CB714B8425740C570049A640 /* tableViewHandler.swift in Sources */,
 				05D02FE92574AE5700B6C455 /* IndTeamsViewController.swift in Sources */,
 				B758B277256DDB6B006EF5DC /* SceneDelegate.swift in Sources */,
+				05C68F1B257AF08600EF9253 /* IndAthleteViewController.swift in Sources */,
 				B7D6D1CA2571D2EA0023723D /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

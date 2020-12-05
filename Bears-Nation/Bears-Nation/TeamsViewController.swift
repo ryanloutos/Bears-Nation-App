@@ -108,6 +108,7 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.backBarButtonItem = backItem
         let detailedV = segue.destination as? IndTeamsViewController
         detailedV?.teamName = combined[indexClicked.section][indexClicked.row].sport
+        detailedV?.teamID = combined[indexClicked.section][indexClicked.row]._id
         if indexClicked.section == 0 {
             detailedV?.male = true
         }
