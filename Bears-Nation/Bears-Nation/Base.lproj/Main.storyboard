@@ -116,10 +116,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-E4-Ygn">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-E4-Ygn">
                                 <rect key="frame" x="0.0" y="229" width="375" height="500"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="7c9-A6-Szc"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZhV-cN-BDs">
                                     <size key="itemSize" width="367" height="238"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -131,7 +133,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="mRa-kf-lEA">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="mRa-kf-lEA">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OuA-xs-AMv">
@@ -142,18 +144,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkF-QD-5m4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkF-QD-5m4">
                                 <rect key="frame" x="0.0" y="207" width="375" height="14"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="WashURed"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="v1v-qz-Jz6"/>
+                                </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BearsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qf2-hB-qmz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BearsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qf2-hB-qmz">
                                 <rect key="frame" x="16" y="103" width="119" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="b4N-RA-H0p"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-id-IdU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-id-IdU">
                                 <rect key="frame" x="127" y="129" width="248" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="lD1-SB-inm"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Top Stories">
                                         <attributes>
@@ -167,6 +175,20 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hkF-QD-5m4" firstAttribute="top" secondItem="sEY-id-IdU" secondAttribute="bottom" constant="8" id="2lF-6g-q3u"/>
+                            <constraint firstItem="j9f-E4-Ygn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3qN-qk-lvW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qf2-hB-qmz" secondAttribute="trailing" constant="240" id="6TB-Ac-Z1w"/>
+                            <constraint firstItem="sEY-id-IdU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="AkK-6I-teS"/>
+                            <constraint firstItem="hkF-QD-5m4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EQP-zr-u64"/>
+                            <constraint firstItem="qf2-hB-qmz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="NuF-kD-HKZ"/>
+                            <constraint firstItem="sEY-id-IdU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NyL-rq-Mdf"/>
+                            <constraint firstItem="qf2-hB-qmz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OW5-4L-OQJ"/>
+                            <constraint firstItem="j9f-E4-Ygn" firstAttribute="top" secondItem="hkF-QD-5m4" secondAttribute="bottom" constant="8" id="Szs-VM-A7z"/>
+                            <constraint firstItem="hkF-QD-5m4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VBG-KK-6fi"/>
+                            <constraint firstItem="sEY-id-IdU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="edA-O3-fz8"/>
+                            <constraint firstItem="j9f-E4-Ygn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gc5-Un-VVq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bear's Nation" id="LWH-7u-jgI"/>
@@ -419,7 +441,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ka-5j-j53">
-                                <rect key="frame" x="63" y="118" width="248" height="36"/>
+                                <rect key="frame" x="63" y="119" width="248" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Teams">

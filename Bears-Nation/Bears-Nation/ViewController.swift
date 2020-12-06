@@ -49,15 +49,35 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell.contentView.addSubview(blankView)
         }
 
-        let titleView = UIView(frame: CGRect(x: 0, y: cell.bounds.size.height*3/4, width: cell.bounds.size.width, height: cell.bounds.size.height/4))
+        
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: cell.bounds.size.height*2/4, width: cell.bounds.size.width, height: cell.bounds.size.height * 2/4))
         titleView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
+        let gradient = CAGradientLayer()
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 0.6)
+        let whiteColor = UIColor.white
+        gradient.colors = [whiteColor.withAlphaComponent(0.0).cgColor, whiteColor.withAlphaComponent(1.0).cgColor, whiteColor.withAlphaComponent(1.0).cgColor]
+        gradient.locations = [NSNumber(value: 0.0),NSNumber(value: 0.2),NSNumber(value: 1.0)]
+        gradient.frame = titleView.bounds
+        titleView.layer.mask = gradient
+
+        
+        // from https://stackoverflow.com/questions/40575408/outline-uilabel-text-in-uilabel-subclass
+        let strokeTextAttributes = [
+          NSAttributedString.Key.strokeColor : UIColor.black,
+          NSAttributedString.Key.foregroundColor : UIColor.white,
+          NSAttributedString.Key.strokeWidth : -0.5,]
+          as [NSAttributedString.Key : Any]
+
         let articleTitle = UILabel(frame: CGRect(x: 0, y: 0, width: titleView.bounds.size.width, height: titleView.bounds.size.height))
-        articleTitle.text = articles[indexPath.row].title
-        articleTitle.textAlignment = .center
+        articleTitle.attributedText = NSMutableAttributedString(string: articles[indexPath.row].title, attributes: strokeTextAttributes)
         articleTitle.textColor = .white
-        articleTitle.font = UIFont(name: "Gill Sans", size: 15)
+        articleTitle.font = UIFont(name: "Gill Sans", size: 30)
         articleTitle.numberOfLines = 5
+        articleTitle.textAlignment = .center
+
         
         titleView.addSubview(articleTitle)
         
@@ -67,6 +87,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let articleVC = IndArticleViewController()
         
         DispatchQueue.global().async {
             let curArticle = self.articles[indexPath.row]
@@ -75,7 +96,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
            
             let indArticle = Article(id: curArticle._id, title: curArticle.title, date_posted: curArticle.date_posted, content: modifiedContent, image: self.imageCache[indexPath.row])
            
-            let articleVC = IndArticleViewController()
+            
             articleVC.article = indArticle
             
             DispatchQueue.main.async {
