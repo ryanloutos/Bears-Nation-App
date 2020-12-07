@@ -26,9 +26,7 @@ class IndArticleViewController: UIViewController {
         view.addSubview(scrollView)
         
         // hard-coded values for now, may change later (to accompany all phones)
-//        let topLine = UIView(frame: CGRect(x: 19, y: 20, width: 336, height: 3))
-//        topLine.backgroundColor = .systemRed
-
+        
         let titleSizeMultiplier = (article.title.count / 15) + 1
         let titleHeight: CGFloat = CGFloat(40 * titleSizeMultiplier)
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: titleHeight))
@@ -43,25 +41,10 @@ class IndArticleViewController: UIViewController {
         let titleBar = UIView(frame: CGRect(x: 0, y: titleLabel.frame.origin.y + titleLabel.frame.height + 8, width: view.frame.width, height: 14))
         titleBar.backgroundColor = UIColor(named: "WashURed")
 
-//        let bottomLine = UIView(frame: CGRect(x: 19, y: titleLabel.frame.origin.y + titleLabel.frame.height, width: 336, height: 3))
-//        bottomLine.backgroundColor = .systemRed
 
         let articleImage = UIImageView(frame: CGRect(x: 0, y: titleBar.frame.origin.y + titleBar.frame.height + 8, width: scrollView.frame.width, height: scrollView.frame.width * 0.635))
         articleImage.center.x = view.center.x
         articleImage.image = article.image
-        
-//        let titleView = UIView(frame: CGRect(x: 0, y: articleImage.frame.origin.y + articleImage.frame.height, width: scrollView.frame.width, height: 60))
-//        titleView.backgroundColor = UIColor(named: "WashURed")
-//
-//        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 248, height: titleView.frame.height * 4 / 5))
-//        titleLabel.center = titleView.center
-//        titleLabel.numberOfLines = 5
-//        titleLabel.text = article.title
-//        titleLabel.font = UIFont(name: "Gill Sans", size: 30)
-//        titleLabel.textColor = UIColor(named: "WashUGreen")
-//        titleLabel.textAlignment = .center
-//        titleLabel.sizeToFit()
-        
 
         let dateLabel = UILabel(frame: CGRect(x: 0, y: articleImage.frame.origin.y + articleImage.frame.height + 10, width: view.frame.width-75, height: 20))
         dateLabel.text = "Posted \(article.date_posted)"
@@ -69,7 +52,7 @@ class IndArticleViewController: UIViewController {
         dateLabel.textColor = .gray
         dateLabel.center.x = view.center.x
 
-        let articleLine = UIView(frame: CGRect(x: 0, y: dateLabel.frame.origin.y + dateLabel.frame.height + 10, width: view.frame.width - 75, height: 3))
+        let articleLine = UIView(frame: CGRect(x: 0, y: dateLabel.frame.origin.y + dateLabel.frame.height + 10, width: view.frame.width - 50, height: 3))
         articleLine.backgroundColor = .gray
         articleLine.center.x = view.center.x
 
@@ -79,12 +62,9 @@ class IndArticleViewController: UIViewController {
         articleContent.numberOfLines = 0
         articleContent.sizeToFit()
 
-//        scrollView.addSubview(topLine)
         scrollView.addSubview(titleLabel)
-        //scrollView.addSubview(bottomLine)
         scrollView.addSubview(titleBar)
         scrollView.addSubview(articleImage)
-//        scrollView.addSubview(titleView)
         scrollView.addSubview(dateLabel)
         scrollView.addSubview(articleLine)
         scrollView.addSubview(articleContent)
