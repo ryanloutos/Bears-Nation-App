@@ -19,6 +19,7 @@ class IndAthleteViewController: UIViewController {
     @IBOutlet weak var pos: UILabel!
     @IBOutlet weak var batsThrows: UILabel!
     @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     var _id: String!
     var name: String!
@@ -33,6 +34,7 @@ class IndAthleteViewController: UIViewController {
     var events: String!
     var team: String!
     var bio: String!
+    var image: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +46,21 @@ class IndAthleteViewController: UIViewController {
             topLabel.text = "#" + number + " " + name
         }
         topLabel.adjustsFontSizeToFitWidth = true
-        playerDescription()
         // Do any additional setup after loading the view.
+        let spinnerView = UIView.init(frame: view.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let activitySpinner = UIActivityIndicatorView.init(style: .large)
+        activitySpinner.startAnimating()
+        activitySpinner.center = spinnerView.center
+        spinnerView.addSubview(activitySpinner)
+        view.addSubview(spinnerView)
+        DispatchQueue.global().async {
+            self.imageCache()
+            DispatchQueue.main.async {
+                spinnerView.removeFromSuperview()
+                self.playerDescription()
+            }
+        }
     }
     
     func playerDescription() {
@@ -64,7 +79,7 @@ class IndAthleteViewController: UIViewController {
         }
                 
         if bats_throws != "" {
-                let btText = UILabel(frame: CGRect(x: batsThrows.center.x + 15, y: batsThrows.center.y + 17, width: CGFloat(40), height: CGFloat(21)))
+                let btText = UILabel(frame: CGRect(x: batsThrows.center.x + 54, y: batsThrows.center.y - 10, width: CGFloat(200), height: CGFloat(21)))
                 btText.text = bats_throws
                 scrollView.addSubview(btText)
         }
@@ -106,6 +121,16 @@ class IndAthleteViewController: UIViewController {
         bioText.sizeToFit()
         
         scrollView.contentSize = CGSize(width: view.frame.width, height: bioText.frame.origin.y + bioText.frame.height)
+        
+        if (image != nil) {
+            imageView.image = image
+        }
+    }
+    
+    func imageCache() {
+        let newURL = URL(string: "http://bears-nation-api.herokuapp.com/athletes/image/\(_id ?? "")")
+        let data = try? Data(contentsOf: newURL!)
+        image = UIImage(data: data!)
     }
     
 

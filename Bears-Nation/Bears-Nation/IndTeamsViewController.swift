@@ -102,7 +102,8 @@ class IndTeamsViewController: UIViewController, UITableViewDelegate, UITableView
         detailedV?.position = athletes[indexClicked.row].position
         detailedV?.events = athletes[indexClicked.row].events
         detailedV?.team = athletes[indexClicked.row].team
-        detailedV?.bio = athletes[indexClicked.row].bio
+        let modifiedContent = self.modifyContent(content: athletes[indexClicked.row].bio)
+        detailedV?.bio = modifiedContent
     }
     
     func fetchTeams() {
@@ -110,6 +111,19 @@ class IndTeamsViewController: UIViewController, UITableViewDelegate, UITableView
         guard let data = try? Data(contentsOf: url) else {return}
         self.athletes = try! JSONDecoder().decode([AthletesAPI].self, from: data)
     }
+    
+    func modifyContent(content: String) -> String {
+            var newContent = ""
+            for i in 0..<content.count - 1 {
+                
+                let startIdx = content.index(content.startIndex, offsetBy: i)
+                newContent.append(content[startIdx])
+                if content[startIdx].isNewline {
+                    newContent.append("\n")
+                }
+            }
+            return newContent
+        }
     
     func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "athleteCell")

@@ -21,7 +21,6 @@ class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var teams: [TeamsAPI] = []
     var combined: [[TeamsAPI]] = []
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
