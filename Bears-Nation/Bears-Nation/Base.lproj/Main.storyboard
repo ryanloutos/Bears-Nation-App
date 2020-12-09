@@ -166,7 +166,7 @@
                                     <fragment content="Top Stories">
                                         <attributes>
                                             <color key="NSColor" red="0.19154379317323278" green="0.41474449634552002" blue="0.20168241406934476" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="41" name="SFMono-Heavy"/>
+                                            <font key="NSFont" size="42" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -747,6 +747,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="" backgroundImage="calendar" catalog="system"/>
+                                        <connections>
+                                            <segue destination="kkS-rg-ZqJ" kind="presentation" id="c90-XM-1c5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -758,20 +761,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tTc-Mf-90K">
-                                    <size key="itemSize" width="310" height="250"/>
+                                    <size key="itemSize" width="310" height="179"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fEQ-D0-EE2">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="235"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="179"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hwx-vW-al7">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="235"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="179"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="310" height="235"/>
+                                        <size key="customSize" width="310" height="179"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -784,7 +787,7 @@
                                     <fragment content="December 10, 2020">
                                         <attributes>
                                             <color key="NSColor" red="0.19154379317323278" green="0.41474449634552002" blue="0.20168241406934476" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="35" name="Arial-BoldMT"/>
+                                            <font key="NSFont" size="35" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -839,6 +842,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4m-2X-BMO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1532" y="1952"/>
+        </scene>
+        <!--Date View Controller-->
+        <scene sceneID="AhX-kO-KiC">
+            <objects>
+                <viewController id="kkS-rg-ZqJ" customClass="DateViewController" customModule="Bears_Nation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lLA-ua-P7f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="css-Ip-pJZ">
+                                <rect key="frame" x="41" y="290" width="292" height="233"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MU-rd-z1g">
+                                        <rect key="frame" x="0.0" y="0.0" width="292" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" name="WashURed"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Pick a Date">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="21" name="HelveticaNeue-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzi-el-IxM">
+                                        <rect key="frame" x="124" y="195" width="44" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Select"/>
+                                        <connections>
+                                            <action selector="onSelectButton:" destination="kkS-rg-ZqJ" eventType="touchUpInside" id="dck-u0-bYv"/>
+                                            <action selector="onSelectButton:" destination="z5J-8D-hUB" eventType="touchUpInside" id="lBv-kT-Vxw"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="8Bv-tR-UDi">
+                                        <rect key="frame" x="-2" y="48" width="297" height="143"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Abz-yQ-reI"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="8Bv-tR-UDi" id="sJ2-3s-MJ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qUc-Ja-Jrp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="z5J-8D-hUB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2472.8000000000002" y="2673.3990147783252"/>
         </scene>
     </scenes>
     <resources>

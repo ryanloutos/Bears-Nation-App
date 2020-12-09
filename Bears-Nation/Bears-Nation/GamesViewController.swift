@@ -109,6 +109,16 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         updateSchedule()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dateVC = segue.destination as? DateViewController {
+            dateVC.callback = { date in
+                self.setAllDateButtonsGrey()
+                self.currentDate = date
+                self.updateSchedule()
+            }
+        }
+    }
+    
     func updateCurrentDate(daysAfterFirst: Int) {
         currentDate = calendar.date(byAdding: .day, value: daysAfterFirst, to: calendar.startOfDay(for: firstDate))!
     }
@@ -132,13 +142,13 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         let teamLabel = UILabel(frame: CGRect(x: 5, y: 0, width: cell.frame.width / 2, height: header.frame.height))
         teamLabel.text = games[indexPath.row].team
         teamLabel.textAlignment = .left
-        teamLabel.font = UIFont(name: "HelveticaNeue", size: 17)
+        teamLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
         teamLabel.textColor = .white
         
         let resultLabel = UILabel(frame: CGRect(x: cell.frame.width / 2 + 5, y: 0, width: cell.frame.width / 2 - 10, height: header.frame.height))
         resultLabel.text = "\(games[indexPath.row].status), \(games[indexPath.row].result)"
         resultLabel.textAlignment = .right
-        resultLabel.font = UIFont(name: "HelveticaNeue", size: 17)
+        resultLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
         resultLabel.textColor = .white
         
         header.addSubview(teamLabel)
@@ -197,10 +207,10 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         dateButton4.setTitle("\(String(describing: monthConv[dates[3][1]]!)) \(dates[3][2])", for: .normal)
         
         // set font
-        dateButton1.titleLabel?.font = UIFont(name: "Gill Sans", size: 23)
-        dateButton2.titleLabel?.font = UIFont(name: "Gill Sans", size: 23)
-        dateButton3.titleLabel?.font = UIFont(name: "Gill Sans", size: 23)
-        dateButton4.titleLabel?.font = UIFont(name: "Gill Sans", size: 23)
+        dateButton1.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+        dateButton2.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+        dateButton3.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+        dateButton4.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
         
         // set alignment
         dateButton1.titleLabel?.textAlignment = .center

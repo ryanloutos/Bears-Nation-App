@@ -10,6 +10,7 @@
 		052F02AC25719FA000B7C62D /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F02AB25719FA000B7C62D /* TeamsViewController.swift */; };
 		05C68F1B257AF08600EF9253 /* IndAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */; };
 		05D02FE92574AE5700B6C455 /* IndTeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */; };
+		B7501DB325816C770020D1E9 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7501DB225816C770020D1E9 /* DateViewController.swift */; };
 		B758B275256DDB6B006EF5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B274256DDB6B006EF5DC /* AppDelegate.swift */; };
 		B758B277256DDB6B006EF5DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B276256DDB6B006EF5DC /* SceneDelegate.swift */; };
 		B758B279256DDB6B006EF5DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B278256DDB6B006EF5DC /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		052F02AB25719FA000B7C62D /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndAthleteViewController.swift; sourceTree = "<group>"; };
 		05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndTeamsViewController.swift; sourceTree = "<group>"; };
+		B7501DB225816C770020D1E9 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		B758B271256DDB6B006EF5DC /* Bears-Nation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bears-Nation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B758B274256DDB6B006EF5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B758B276256DDB6B006EF5DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				B758B278256DDB6B006EF5DC /* ViewController.swift */,
 				B7D6D1CB2571D5260023723D /* IndArticleViewController.swift */,
 				B7EB65AE257F62EE006B4C18 /* GamesViewController.swift */,
+				B7501DB225816C770020D1E9 /* DateViewController.swift */,
 				B7D6D1C92571D2EA0023723D /* Article.swift */,
 				B758B27A256DDB6B006EF5DC /* Main.storyboard */,
 				B758B27D256DDB6F006EF5DC /* Assets.xcassets */,
@@ -167,6 +170,7 @@
 			files = (
 				B758B279256DDB6B006EF5DC /* ViewController.swift in Sources */,
 				052F02AC25719FA000B7C62D /* TeamsViewController.swift in Sources */,
+				B7501DB325816C770020D1E9 /* DateViewController.swift in Sources */,
 				B758B275256DDB6B006EF5DC /* AppDelegate.swift in Sources */,
 				B7D6D1CC2571D5260023723D /* IndArticleViewController.swift in Sources */,
 				CB714B8625740F9C0049A640 /* messageBoardDetail.swift in Sources */,
