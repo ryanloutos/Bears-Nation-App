@@ -109,6 +109,16 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         updateSchedule()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dateVC = segue.destination as? DateViewController {
+            dateVC.callback = { date in
+                self.setAllDateButtonsGrey()
+                self.currentDate = date
+                self.updateSchedule()
+            }
+        }
+    }
+    
     func updateCurrentDate(daysAfterFirst: Int) {
         currentDate = calendar.date(byAdding: .day, value: daysAfterFirst, to: calendar.startOfDay(for: firstDate))!
     }
