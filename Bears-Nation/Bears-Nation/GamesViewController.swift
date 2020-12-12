@@ -14,7 +14,7 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
 
     struct APIResults:Decodable {
         let _id: String
-        let team: String
+        let team_name: String
         let status: String
         let home:Bool
         let opponent: String
@@ -22,18 +22,18 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     let dummyGames1 = [
-        APIResults(_id: "1", team: "Men's Soccer", status: "Final", home: true, opponent: "Chicago", result: "L, 1-0"),
-        APIResults(_id: "2", team: "Women's Volleyball", status: "Final", home: false, opponent: "Emory", result: "W, 6-5")
+        APIResults(_id: "1", team_name: "Men's Soccer", status: "Final", home: true, opponent: "Chicago", result: "L, 1-0"),
+        APIResults(_id: "2", team_name: "Women's Volleyball", status: "Final", home: false, opponent: "Emory", result: "W, 6-5")
     ]
     
     let dummyGames2 = [
-        APIResults(_id: "3", team: "Men's Basketball", status: "Final", home: true, opponent: "Carnegie Mellon", result: "L, 76-54"),
-        APIResults(_id: "4", team: "Women's Soccer", status: "Final", home: true, opponent: "Wheaton", result: "W, 3-0"),
-        APIResults(_id: "5", team: "Softball", status: "Final", home: false, opponent: "NYU", result: "L, 4-1")
+        APIResults(_id: "3", team_name: "Men's Basketball", status: "Final", home: true, opponent: "Carnegie Mellon", result: "L, 76-54"),
+        APIResults(_id: "4", team_name: "Women's Soccer", status: "Final", home: true, opponent: "Wheaton", result: "W, 3-0"),
+        APIResults(_id: "5", team_name: "Softball", status: "Final", home: false, opponent: "NYU", result: "L, 4-1")
     ]
     
     let dummyGames3 = [
-        APIResults(_id: "5", team: "Men's Baseball", status: "Final", home: true, opponent: "Brandeis", result: "W, 5-2")
+        APIResults(_id: "5", team_name: "Men's Baseball", status: "Final", home: true, opponent: "Brandeis", result: "W, 5-2")
     ]
     
     @IBOutlet weak var dateButton1: UIButton!
@@ -45,6 +45,10 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var currentDateLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var noGamesLabel: UILabel!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var currentDate: Date!
     var firstDate: Date!
@@ -109,6 +113,8 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         updateSchedule()
     }
     
+    
+    // help from https://stackoverflow.com/questions/19343519/pass-data-back-to-previous-viewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dateVC = segue.destination as? DateViewController {
             dateVC.callback = { date in
@@ -140,13 +146,17 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         header.backgroundColor = UIColor(named: "WashURed")
         
         let teamLabel = UILabel(frame: CGRect(x: 5, y: 0, width: cell.frame.width / 2, height: header.frame.height))
-        teamLabel.text = games[indexPath.row].team
+        teamLabel.text = games[indexPath.row].team_name
         teamLabel.textAlignment = .left
         teamLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
         teamLabel.textColor = .white
         
         let resultLabel = UILabel(frame: CGRect(x: cell.frame.width / 2 + 5, y: 0, width: cell.frame.width / 2 - 10, height: header.frame.height))
-        resultLabel.text = "\(games[indexPath.row].status), \(games[indexPath.row].result)"
+        var colon = ""
+        if games[indexPath.row].status != "" {
+            colon = ":"
+        }
+        resultLabel.text = "\(games[indexPath.row].status)\(colon) \(games[indexPath.row].result)"
         resultLabel.textAlignment = .right
         resultLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
         resultLabel.textColor = .white
@@ -241,17 +251,23 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func fetchGames() {
-        let curDateVal = getDateVals(date: currentDate)[2]
-        if curDateVal == "09" {
-            games = dummyGames1
+        let curDateVals = getDateVals(date: currentDate)
+        guard let url = URL(string: "https://bears-nation-api.herokuapp.com/competitions?date=\(dropLeadingZero(dateVal: curDateVals[1]))/\(dropLeadingZero(dateVal: curDateVals[2]))/\(curDateVals[0])") else {return}
+        
+        spinner.startAnimating()
+        noGamesLabel.isHidden = true
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: url) else {return}
+            self.games = try! JSONDecoder().decode([APIResults].self, from: data)
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                if self.games.count == 0 {
+                    self.noGamesLabel.isHidden = false
+                }
+                self.collectionView.reloadData()
+            }
         }
-        else if curDateVal == "10" {
-            games = dummyGames2
-        }
-        else {
-            games = dummyGames3
-        }
-        collectionView.reloadData()
+        
     }
     
     func setupCollectionView() {
