@@ -154,7 +154,7 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         let resultLabel = UILabel(frame: CGRect(x: cell.frame.width / 2 + 5, y: 0, width: cell.frame.width / 2 - 10, height: header.frame.height))
         var colon = ""
         if games[indexPath.row].status != "" {
-            colon = ","
+            colon = ":"
         }
         resultLabel.text = "\(games[indexPath.row].status)\(colon) \(games[indexPath.row].result)"
         resultLabel.textAlignment = .right
@@ -255,6 +255,7 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         guard let url = URL(string: "https://bears-nation-api.herokuapp.com/competitions?date=\(dropLeadingZero(dateVal: curDateVals[1]))/\(dropLeadingZero(dateVal: curDateVals[2]))/\(curDateVals[0])") else {return}
         
         spinner.startAnimating()
+        noGamesLabel.isHidden = true
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else {return}
             self.games = try! JSONDecoder().decode([APIResults].self, from: data)
@@ -262,9 +263,6 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
                 self.spinner.stopAnimating()
                 if self.games.count == 0 {
                     self.noGamesLabel.isHidden = false
-                }
-                else {
-                    self.noGamesLabel.isHidden = true
                 }
                 self.collectionView.reloadData()
             }
