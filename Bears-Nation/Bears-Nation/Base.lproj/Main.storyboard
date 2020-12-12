@@ -766,6 +766,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="d3M-Dl-Xkr">
+                                    <rect key="frame" x="0.0" y="0.0" width="310" height="422"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fEQ-D0-EE2">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="179"/>
@@ -789,6 +793,19 @@
                                             <color key="NSColor" red="0.19154379317323278" green="0.41474449634552002" blue="0.20168241406934476" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <font key="NSFont" size="35" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnA-6a-9c7">
+                                <rect key="frame" x="53" y="276" width="276" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="There are no games for this day.">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -818,6 +835,8 @@
                         <outlet property="dateButton2" destination="aup-eE-xJm" id="Tec-9o-ON7"/>
                         <outlet property="dateButton3" destination="vBs-Nw-ZpI" id="dzt-ha-ve0"/>
                         <outlet property="dateButton4" destination="m60-X5-6Mj" id="wK3-g5-KFu"/>
+                        <outlet property="noGamesLabel" destination="wnA-6a-9c7" id="alO-At-b1J"/>
+                        <outlet property="spinner" destination="d3M-Dl-Xkr" id="F46-of-dCO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9N-ND-zaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
