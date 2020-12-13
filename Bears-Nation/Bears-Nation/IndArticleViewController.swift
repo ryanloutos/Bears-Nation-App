@@ -32,7 +32,7 @@ class IndArticleViewController: UIViewController {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: titleHeight))
         titleLabel.text = article.title
         titleLabel.numberOfLines = 5
-        titleLabel.font = UIFont(name: "Gill Sans", size: 30)
+        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
         titleLabel.textColor = UIColor(named: "WashUGreen")
         titleLabel.textAlignment = .center
         titleLabel.sizeToFit()
@@ -48,7 +48,7 @@ class IndArticleViewController: UIViewController {
 
         let dateLabel = UILabel(frame: CGRect(x: 0, y: articleImage.frame.origin.y + articleImage.frame.height + 10, width: view.frame.width-75, height: 20))
         dateLabel.text = "Posted \(article.date_posted)"
-        dateLabel.font = UIFont(name: "Gill Sans", size: 15)
+        dateLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         dateLabel.textColor = .gray
         dateLabel.center.x = view.center.x
 
