@@ -14,27 +14,17 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
 
     struct APIResults:Decodable {
         let _id: String
-        let team_name: String
+        let team: String
         let status: String
         let home:Bool
         let opponent: String
         let result: String
+        let results_page: String?
+        let recap_page: String?
+        let live_stats_page: String?
+        let team_name: String
     }
     
-    let dummyGames1 = [
-        APIResults(_id: "1", team_name: "Men's Soccer", status: "Final", home: true, opponent: "Chicago", result: "L, 1-0"),
-        APIResults(_id: "2", team_name: "Women's Volleyball", status: "Final", home: false, opponent: "Emory", result: "W, 6-5")
-    ]
-    
-    let dummyGames2 = [
-        APIResults(_id: "3", team_name: "Men's Basketball", status: "Final", home: true, opponent: "Carnegie Mellon", result: "L, 76-54"),
-        APIResults(_id: "4", team_name: "Women's Soccer", status: "Final", home: true, opponent: "Wheaton", result: "W, 3-0"),
-        APIResults(_id: "5", team_name: "Softball", status: "Final", home: false, opponent: "NYU", result: "L, 4-1")
-    ]
-    
-    let dummyGames3 = [
-        APIResults(_id: "5", team_name: "Men's Baseball", status: "Final", home: true, opponent: "Brandeis", result: "W, 5-2")
-    ]
     
     @IBOutlet weak var dateButton1: UIButton!
     @IBOutlet weak var dateButton2: UIButton!
@@ -54,6 +44,7 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     var firstDate: Date!
     
     var games: [APIResults] = []
+    var imageCache: [UIImage?] = []
 
     let monthConv: [String: String] = [
         "01": "JAN",
@@ -169,7 +160,15 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         let body = UIView(frame: CGRect(x: 0, y: header.frame.height, width: cell.frame.width, height: cell.frame.height / 2))
         body.backgroundColor = .systemGray2
 
-        let opponentLabel = UILabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: body.frame.height))
+        
+        if let opponentImage = imageCache[indexPath.row] {
+            let opponentLogo = UIImageView(frame: CGRect(x: 0, y: 0, width: cell.frame.width/3, height: body.frame.height))
+            opponentLogo.center.y = body.center.y - header.frame.height
+            opponentLogo.image = opponentImage
+            body.addSubview(opponentLogo)
+        }
+        
+        let opponentLabel = UILabel(frame: CGRect(x: cell.frame.width / 3, y: 0, width: cell.frame.width * 2 / 3, height: body.frame.height))
         opponentLabel.center.y = body.center.y - header.frame.height
         if games[indexPath.row].home {
             opponentLabel.text = "vs \(games[indexPath.row].opponent)"
@@ -178,8 +177,9 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
             opponentLabel.text = "at \(games[indexPath.row].opponent)"
         }
         opponentLabel.textAlignment = .center
-        opponentLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
+        opponentLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         opponentLabel.textColor = .white
+        opponentLabel.numberOfLines = 0
 
         body.addSubview(opponentLabel)
         
@@ -190,6 +190,10 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         cell.backgroundColor = .white
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "IndGameViewController", sender: self)
     }
     
     func getDateVals(date: Date) -> [String] {
@@ -259,15 +263,30 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else {return}
             self.games = try! JSONDecoder().decode([APIResults].self, from: data)
+            let cache = self.cacheImages()
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()
                 if self.games.count == 0 {
                     self.noGamesLabel.isHidden = false
                 }
+                self.imageCache = cache
                 self.collectionView.reloadData()
             }
         }
-        
+    }
+    
+    func cacheImages() -> [UIImage?] {
+        // get the images for each article
+        var cache: [UIImage?] = []
+        let curData = games
+        for i in 0..<(curData.count) {
+            guard let url = URL(string: "https://bears-nation-api.herokuapp.com/competitions/opponent_logo/" + curData[i]._id) else {cache.append(nil); continue}
+            guard let data = try? Data(contentsOf: url) else {cache.append(nil); continue}
+            guard let image = UIImage(data: data) else {cache.append(nil); continue}
+            cache.append(image)
+        }
+        print(cache)
+        return cache
     }
     
     func setupCollectionView() {
