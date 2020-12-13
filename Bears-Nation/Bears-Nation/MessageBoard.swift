@@ -12,32 +12,31 @@ class MessageBoard: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     
-    var subjectArr = ["Can the bears do it", "We won!!!!!!", "Nao Is looking stronger than ever", "Ryan Pitches no hitter", "Bo goes yard!!"]
-    var replyArr = ["5", "5", "5", "5", "5"]
-    
-    var userNames: [String] = ["GoBears", "BoDaBear", "Ryan_UAABaseball", "Nao", "ChrisMacdonald", "BearLuver"]
-    var mreponses: [String] = ["With such a good goal keepings from the womens soccer team abd a strong defense, I don't see many goals being scored on them this season.  Their only threat is the powerful offense of UChicagp", "I see them making the finals and playing a tight game against UChicago", "Their defense is very strong, but definitley have the ability to score goals!", "Don't forget about emory's senior Jessica.  A four year starter at forward and first team all-american last year", "I can't see how they lose!!!!", "I agree.  Go Bears"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectArr.count
+        return getData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         let cell = tableView.dequeueReusableCell(withIdentifier: "theCell") as! tableViewHandler
-        cell.repliesMain.text = "Replies: " + replyArr[indexPath.row]
-        cell.subjectMain.text = subjectArr[indexPath.row]
-        
+        cell.repliesMain.text = "Replies: \(getData[indexPath.row].replies.count)"
+        cell.subjectMain.text = getData[indexPath.row].subject
         return cell
     }
+ 
+
     
-    struct myData: Decodable {
-        let posts:[post]
+    override func viewWillAppear(_ animated: Bool) {
+        self.fetchMessages()
+        tableView.reloadData()
     }
-    struct post: Decodable {
+    
+    struct posts: Decodable {
+        let _id: String
         let name: String
-        let title: String
-        let replyNumber: String
+        let subject: String
+        let message: String
         let replies: [response]
     }
     struct response: Decodable {
@@ -45,24 +44,57 @@ class MessageBoard: UIViewController, UITableViewDelegate, UITableViewDataSource
         let message: String
     }
     
-    
-
-    
-    var postData: myData = myData(posts: [])
+    var getData: [posts] = []
     var indexClicked: Int = 0
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("going to delete data")
+        self.fetchMessages()
+//        for x in getData{
+//            deleteMessages(ID: x._id)
+//        }
         tableView.dataSource = self
         tableView.delegate = self
+    }
+
     
+    
+    
+    func fetchMessages(){
+        guard let url = URL(string: "https://bears-nation-api.herokuapp.com/messages") else {return}
+        guard let data = try? Data(contentsOf: url) else {return}
+        self.getData = try! JSONDecoder().decode([posts].self, from: data)
+    }
+    
+    func deleteMessages(ID: String){
+        let url = "https://bears-nation-api.herokuapp.com/messages/\(ID)"
+        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(error!)")
+                return
+            }
+            do {
+                if (try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]) != nil{
+                //print(response!)
+            }
+            }
+            catch {
+                print("Error -> \(error)")
+            }
+        }
+        task.resume()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            print("Row selected")
-            print(indexPath.row)
         indexClicked = indexPath.row
         performSegue(withIdentifier: "toDetail", sender: self)
     }
@@ -72,61 +104,17 @@ class MessageBoard: UIViewController, UITableViewDelegate, UITableViewDataSource
         backItem.title = "Message Board"
         navigationItem.backBarButtonItem = backItem
         let detailedV = segue.destination as? messageBoardDetail
-        detailedV?.subject = subjectArr[indexClicked]
-        detailedV?.userNames = userNames
-        detailedV?.replies = mreponses
+        detailedV?.subject = getData[indexClicked].subject
+        detailedV?.index = indexClicked
+        detailedV?.responses = getData[indexClicked].replies
+        if(segue.identifier == "toDetail"){
+           detailedV?.ID = getData[indexClicked]._id
+        }
+        
     }
+    
+    
+    
 
 }
-
-/*   var incommingData: [String: Any] = [
-"posts": [
-    [
-        "name": "firstWrigter",
-        "tite": "How bout them bears",
-        "replyNumber": "4",
-        "replies": [
-          [
-            "name": "firstReply",
-            "message": "I agree!"
-          ],
-          [
-            "name": "secondReply",
-            "message": "I agree!"
-          ],
-          [
-            "name": "thirdReply",
-            "message": "I agree!"
-          ],
-          [
-            "name": "fourthReply",
-            "message": "I agree!"
-          ]
-        ]
-    ],
-    [
-        "name": "secondWrigter",
-        "tite": "Bears Win!!!!",
-        "replyNumber": "4",
-        "replies": [
-          [
-            "name": "firstReply",
-            "message": "I agree!"
-          ],
-          [
-            "name": "secondReply",
-            "message": "I agree!"
-          ],
-          [
-            "name": "thirdReply",
-            "message": "I agree!"
-          ],
-          [
-            "name": "fourthReply",
-            "message": "I agree!"
-          ]
-        ]
-    ]
-]
-] */
 
