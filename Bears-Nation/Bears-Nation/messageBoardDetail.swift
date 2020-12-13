@@ -11,9 +11,10 @@ import UIKit
 class messageBoardDetail: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var MySwitch: UISwitch!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return replies.count
+        return responses.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -22,31 +23,83 @@ class messageBoardDetail: UIViewController, UITableViewDelegate, UITableViewData
     var first:Bool = true
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "theCell") as! tableViewHandler
-        if(first){
+        if(indexPath.row == 0){
             cell.subjectDetail.text = subject
-            first = false
+            cell.userDetail.text = "User: \(allData[index].name)"
+            cell.messageDetail.text = allData[index].message
         } else{
-            cell.subjectDetail.text = "Re: " + subject
+            if(Order){
+                cell.subjectDetail.text = "Re: " + subject
+                cell.userDetail.text = "User: \(responses[(indexPath.row - 1)].name)"
+                cell.messageDetail.text = responses[(indexPath.row - 1)].message
+            } else{
+                let index = responses.count - indexPath.row
+                cell.subjectDetail.text = "Re: " + subject
+                cell.userDetail.text = "User: \(responses[index].name)"
+                cell.messageDetail.text = responses[index].message
+            }
+            
 
         }
-        cell.userDetail.text = "User: " + userNames[indexPath.row]
-        cell.messageDetail.text = replies[indexPath.row]
         return cell
     }
     
-
+    
     var subject: String = ""
-    var userNames: [String] = [""]
-    var replies: [String] = [""]
+    var index: Int = 0
+    var ID: String = ""
+    var Order: Bool = true
+    
+    
+    
+    var allData:[MessageBoard.posts] = []
+    
+    
+    var responses:[MessageBoard.response] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
-        print(subject)
+        fetchMessages()
     }
     
+    
+    @IBAction func order(_ sender: UISwitch) {
+        if(sender.isOn){
+            Order = true
+            tableView.reloadData()
+        } else{
+            Order = false
+            tableView.reloadData()
+        }
+    }
+    
+
+    
+    func fetchMessages(){
+        guard let url = URL(string: "https://bears-nation-api.herokuapp.com/messages") else {return}
+        guard let data = try? Data(contentsOf: url) else {return}
+        self.allData = try! JSONDecoder().decode([MessageBoard.posts].self, from: data)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.fetchMessages()
+        responses = allData[index].replies
+        tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        var replyPoster = replyPost()
+        replyPoster.id = self.ID
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! replyPost
+        controller.id = ID
+    }
 
     /*
     // MARK: - Navigation
