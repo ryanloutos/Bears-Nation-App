@@ -12,16 +12,16 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     let calendar = Calendar.current
 
-    struct APIResults:Decodable {
+    struct GameAPIResults:Decodable {
         let _id: String
         let team: String
         let status: String
         let home:Bool
         let opponent: String
         let result: String
-        let results_page: String?
-        let recap_page: String?
-        let live_stats_page: String?
+        let results_page: String
+        let recap_page: String
+        let live_stats_page: String
         let team_name: String
     }
     
@@ -43,8 +43,11 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     var currentDate: Date!
     var firstDate: Date!
     
-    var games: [APIResults] = []
+    var games: [GameAPIResults] = []
     var imageCache: [UIImage?] = []
+    
+    var gameClicked: GameAPIResults!
+    var imageClicked: UIImage?
 
     let monthConv: [String: String] = [
         "01": "JAN",
@@ -107,12 +110,19 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // help from https://stackoverflow.com/questions/19343519/pass-data-back-to-previous-viewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // for the date
         if let dateVC = segue.destination as? DateViewController {
             dateVC.callback = { date in
                 self.setAllDateButtonsGrey()
                 self.currentDate = date
                 self.updateSchedule()
             }
+        }
+        
+        // for going to the individual game view
+        if let indGameVC = segue.destination as? IndGameViewController {
+            let indGame = Game(_id: gameClicked._id, team: gameClicked.team, status: gameClicked.status, home: gameClicked.home, opponent: gameClicked.opponent, result: gameClicked.result, results_page: gameClicked.results_page, recap_page: gameClicked.recap_page, live_stats_page: gameClicked.live_stats_page, team_name: gameClicked.team_name, image: imageClicked)
+                indGameVC.game = indGame
         }
     }
     
@@ -144,7 +154,7 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         let resultLabel = UILabel(frame: CGRect(x: cell.frame.width / 2 + 5, y: 0, width: cell.frame.width / 2 - 10, height: header.frame.height))
         var colon = ""
-        if games[indexPath.row].status != "" {
+        if games[indexPath.row].result != "" {
             colon = ":"
         }
         resultLabel.text = "\(games[indexPath.row].status)\(colon) \(games[indexPath.row].result)"
@@ -193,6 +203,8 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        gameClicked = games[indexPath.row]
+        imageClicked = imageCache[indexPath.row]
         performSegue(withIdentifier: "IndGameViewController", sender: self)
     }
     
@@ -257,12 +269,13 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     func fetchGames() {
         let curDateVals = getDateVals(date: currentDate)
         guard let url = URL(string: "https://bears-nation-api.herokuapp.com/competitions?date=\(dropLeadingZero(dateVal: curDateVals[1]))/\(dropLeadingZero(dateVal: curDateVals[2]))/\(curDateVals[0])") else {return}
-        
+        games = []
+        collectionView.reloadData()
         spinner.startAnimating()
         noGamesLabel.isHidden = true
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else {return}
-            self.games = try! JSONDecoder().decode([APIResults].self, from: data)
+            self.games = try! JSONDecoder().decode([GameAPIResults].self, from: data)
             let cache = self.cacheImages()
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()

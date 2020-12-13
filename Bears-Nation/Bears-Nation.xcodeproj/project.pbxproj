@@ -18,6 +18,7 @@
 		B758B27E256DDB6F006EF5DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B758B27D256DDB6F006EF5DC /* Assets.xcassets */; };
 		B758B281256DDB6F006EF5DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B758B27F256DDB6F006EF5DC /* LaunchScreen.storyboard */; };
 		B7BACAB6258693F700F02EB9 /* IndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BACAB5258693F700F02EB9 /* IndGameViewController.swift */; };
+		B7BACAB82586AB8B00F02EB9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BACAB72586AB8B00F02EB9 /* Game.swift */; };
 		B7D6D1CA2571D2EA0023723D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6D1C92571D2EA0023723D /* Article.swift */; };
 		B7D6D1CC2571D5260023723D /* IndArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6D1CB2571D5260023723D /* IndArticleViewController.swift */; };
 		B7EB65AF257F62EE006B4C18 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB65AE257F62EE006B4C18 /* GamesViewController.swift */; };
@@ -40,6 +41,7 @@
 		B758B280256DDB6F006EF5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B758B282256DDB6F006EF5DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7BACAB5258693F700F02EB9 /* IndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndGameViewController.swift; sourceTree = "<group>"; };
+		B7BACAB72586AB8B00F02EB9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B7D6D1C92571D2EA0023723D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		B7D6D1CB2571D5260023723D /* IndArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndArticleViewController.swift; sourceTree = "<group>"; };
 		B7EB65AE257F62EE006B4C18 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				B7BACAB5258693F700F02EB9 /* IndGameViewController.swift */,
 				B7501DB225816C770020D1E9 /* DateViewController.swift */,
 				B7D6D1C92571D2EA0023723D /* Article.swift */,
+				B7BACAB72586AB8B00F02EB9 /* Game.swift */,
 				B758B27A256DDB6B006EF5DC /* Main.storyboard */,
 				B758B27D256DDB6F006EF5DC /* Assets.xcassets */,
 				B758B27F256DDB6F006EF5DC /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 				B7BACAB6258693F700F02EB9 /* IndGameViewController.swift in Sources */,
 				05C68F1B257AF08600EF9253 /* IndAthleteViewController.swift in Sources */,
 				B7D6D1CA2571D2EA0023723D /* Article.swift in Sources */,
+				B7BACAB82586AB8B00F02EB9 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
