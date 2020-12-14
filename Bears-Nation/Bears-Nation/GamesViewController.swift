@@ -112,6 +112,7 @@ class GamesViewController: UIViewController, UICollectionViewDataSource, UIColle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // for the date
         if let dateVC = segue.destination as? DateViewController {
+            dateVC.date = currentDate
             dateVC.callback = { date in
                 self.setAllDateButtonsGrey()
                 self.currentDate = date
