@@ -20,4 +20,7 @@ The message tab allows users to interact with the WashU athletics community.User
 There are four main views on the More tab: WashU Bears Shop, Gameday, Inside Athletics, and Letter from the A.D.
 The WashU Bears Shop displays the WashU shop, where users can buy WashU athletics gear. The gameday view has pages that holds information about tailgating, ticketing, the visitor's guide, and the WashU Sports Network. The Inside Athletics view has pages that inform the user about its mission, directory, facilities, history and SAAC. The Letter from the A.D. view displays a message from the athletic directory for the WashU Bears community.
 
+
+
+
 All the information was scraped from the WashU Bears Website using python. We used express.js and MongoDB to create the api to get/post the information.
