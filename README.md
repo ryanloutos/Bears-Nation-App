@@ -23,4 +23,4 @@ The WashU Bears Shop displays the WashU shop, where users can buy WashU athletic
 
 
 
-All the information was scraped from the WashU Bears Website using python. We used express.js and MongoDB to create the api to get/post the information.
+All the information was scraped from the WashU Bears Website using python. We used express.js and MongoDB to create the api to access the information.
