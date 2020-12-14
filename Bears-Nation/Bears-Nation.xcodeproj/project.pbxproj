@@ -7,16 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05001C1125857F54004D6C7E /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05001C1025857F54004D6C7E /* MoreViewController.swift */; };
+		05001C14258595C1004D6C7E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05001C13258595C1004D6C7E /* WebViewController.swift */; };
+		05001C1725859730004D6C7E /* GamedayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05001C1625859730004D6C7E /* GamedayViewController.swift */; };
+		05001C1A2585C0F5004D6C7E /* InsideAthleticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05001C192585C0F5004D6C7E /* InsideAthleticsViewController.swift */; };
+		05001C1E2585CA96004D6C7E /* LetterFromADViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05001C1D2585CA96004D6C7E /* LetterFromADViewController.swift */; };
 		052F02AC25719FA000B7C62D /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052F02AB25719FA000B7C62D /* TeamsViewController.swift */; };
+		05C68F1B257AF08600EF9253 /* IndAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */; };
 		05D02FE92574AE5700B6C455 /* IndTeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */; };
+		B7501DB325816C770020D1E9 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7501DB225816C770020D1E9 /* DateViewController.swift */; };
 		B758B275256DDB6B006EF5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B274256DDB6B006EF5DC /* AppDelegate.swift */; };
 		B758B277256DDB6B006EF5DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B276256DDB6B006EF5DC /* SceneDelegate.swift */; };
 		B758B279256DDB6B006EF5DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758B278256DDB6B006EF5DC /* ViewController.swift */; };
 		B758B27C256DDB6B006EF5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B758B27A256DDB6B006EF5DC /* Main.storyboard */; };
 		B758B27E256DDB6F006EF5DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B758B27D256DDB6F006EF5DC /* Assets.xcassets */; };
 		B758B281256DDB6F006EF5DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B758B27F256DDB6F006EF5DC /* LaunchScreen.storyboard */; };
+		B7BACAB6258693F700F02EB9 /* IndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BACAB5258693F700F02EB9 /* IndGameViewController.swift */; };
+		B7BACAB82586AB8B00F02EB9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BACAB72586AB8B00F02EB9 /* Game.swift */; };
 		B7D6D1CA2571D2EA0023723D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6D1C92571D2EA0023723D /* Article.swift */; };
 		B7D6D1CC2571D5260023723D /* IndArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6D1CB2571D5260023723D /* IndArticleViewController.swift */; };
+		B7EB65AF257F62EE006B4C18 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB65AE257F62EE006B4C18 /* GamesViewController.swift */; };
 		CB714B8425740C570049A640 /* tableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8325740C570049A640 /* tableViewHandler.swift */; };
 		CB714B8625740F9C0049A640 /* messageBoardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B8525740F9C0049A640 /* messageBoardDetail.swift */; };
 		CB714B88257FF2690049A640 /* messagePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB714B87257FF2690049A640 /* messagePost.swift */; };
@@ -25,8 +35,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05001C1025857F54004D6C7E /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		05001C13258595C1004D6C7E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		05001C1625859730004D6C7E /* GamedayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamedayViewController.swift; sourceTree = "<group>"; };
+		05001C192585C0F5004D6C7E /* InsideAthleticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideAthleticsViewController.swift; sourceTree = "<group>"; };
+		05001C1D2585CA96004D6C7E /* LetterFromADViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterFromADViewController.swift; sourceTree = "<group>"; };
 		052F02AB25719FA000B7C62D /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
+		05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndAthleteViewController.swift; sourceTree = "<group>"; };
 		05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndTeamsViewController.swift; sourceTree = "<group>"; };
+		B7501DB225816C770020D1E9 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		B758B271256DDB6B006EF5DC /* Bears-Nation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bears-Nation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B758B274256DDB6B006EF5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B758B276256DDB6B006EF5DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,8 +52,11 @@
 		B758B27D256DDB6F006EF5DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B758B280256DDB6F006EF5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B758B282256DDB6F006EF5DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7BACAB5258693F700F02EB9 /* IndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndGameViewController.swift; sourceTree = "<group>"; };
+		B7BACAB72586AB8B00F02EB9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B7D6D1C92571D2EA0023723D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		B7D6D1CB2571D5260023723D /* IndArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndArticleViewController.swift; sourceTree = "<group>"; };
+		B7EB65AE257F62EE006B4C18 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		CB714B8325740C570049A640 /* tableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewHandler.swift; sourceTree = "<group>"; };
 		CB714B8525740F9C0049A640 /* messageBoardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageBoardDetail.swift; sourceTree = "<group>"; };
 		CB714B87257FF2690049A640 /* messagePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messagePost.swift; sourceTree = "<group>"; };
@@ -78,7 +98,11 @@
 				B758B276256DDB6B006EF5DC /* SceneDelegate.swift */,
 				B758B278256DDB6B006EF5DC /* ViewController.swift */,
 				B7D6D1CB2571D5260023723D /* IndArticleViewController.swift */,
+				B7EB65AE257F62EE006B4C18 /* GamesViewController.swift */,
+				B7BACAB5258693F700F02EB9 /* IndGameViewController.swift */,
+				B7501DB225816C770020D1E9 /* DateViewController.swift */,
 				B7D6D1C92571D2EA0023723D /* Article.swift */,
+				B7BACAB72586AB8B00F02EB9 /* Game.swift */,
 				B758B27A256DDB6B006EF5DC /* Main.storyboard */,
 				CB714B87257FF2690049A640 /* messagePost.swift */,
 				CB714B8925803EC20049A640 /* replyPost.swift */,
@@ -90,6 +114,12 @@
 				CB714B8525740F9C0049A640 /* messageBoardDetail.swift */,
 				CB714B8325740C570049A640 /* tableViewHandler.swift */,
 				05D02FE82574AE5700B6C455 /* IndTeamsViewController.swift */,
+				05C68F1A257AF08600EF9253 /* IndAthleteViewController.swift */,
+				05001C1025857F54004D6C7E /* MoreViewController.swift */,
+				05001C13258595C1004D6C7E /* WebViewController.swift */,
+				05001C1625859730004D6C7E /* GamedayViewController.swift */,
+				05001C192585C0F5004D6C7E /* InsideAthleticsViewController.swift */,
+				05001C1D2585CA96004D6C7E /* LetterFromADViewController.swift */,
 			);
 			path = "Bears-Nation";
 			sourceTree = "<group>";
@@ -165,8 +195,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05001C1125857F54004D6C7E /* MoreViewController.swift in Sources */,
 				B758B279256DDB6B006EF5DC /* ViewController.swift in Sources */,
 				052F02AC25719FA000B7C62D /* TeamsViewController.swift in Sources */,
+				B7501DB325816C770020D1E9 /* DateViewController.swift in Sources */,
 				B758B275256DDB6B006EF5DC /* AppDelegate.swift in Sources */,
 				B7D6D1CC2571D5260023723D /* IndArticleViewController.swift in Sources */,
 				CB714B8625740F9C0049A640 /* messageBoardDetail.swift in Sources */,
@@ -174,10 +206,18 @@
 				CBA9FB2025719F8900961437 /* MessageBoard.swift in Sources */,
 				CB714B8A25803EC20049A640 /* replyPost.swift in Sources */,
 				CB714B8425740C570049A640 /* tableViewHandler.swift in Sources */,
+				05001C1725859730004D6C7E /* GamedayViewController.swift in Sources */,
 				05D02FE92574AE5700B6C455 /* IndTeamsViewController.swift in Sources */,
+				05001C1A2585C0F5004D6C7E /* InsideAthleticsViewController.swift in Sources */,
+				B7EB65AF257F62EE006B4C18 /* GamesViewController.swift in Sources */,
 				B758B277256DDB6B006EF5DC /* SceneDelegate.swift in Sources */,
+				B7BACAB6258693F700F02EB9 /* IndGameViewController.swift in Sources */,
+				05C68F1B257AF08600EF9253 /* IndAthleteViewController.swift in Sources */,
 				B7D6D1CA2571D2EA0023723D /* Article.swift in Sources */,
 				CB714B88257FF2690049A640 /* messagePost.swift in Sources */,
+				05001C1E2585CA96004D6C7E /* LetterFromADViewController.swift in Sources */,
+				05001C14258595C1004D6C7E /* WebViewController.swift in Sources */,
+				B7BACAB82586AB8B00F02EB9 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
