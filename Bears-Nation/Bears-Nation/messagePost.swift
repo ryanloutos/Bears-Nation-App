@@ -51,6 +51,9 @@ class messagePost: UIViewController {
             if(subject.text != ""){
                 if(message.text != ""){
                     poster()
+                    usernamePost.text = ""
+                    subject.text = ""
+                    message.text = ""
                 } else{
                     print("Please put include a message")
                 }

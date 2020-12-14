@@ -34,6 +34,8 @@ class replyPost: UIViewController {
         if(username.text != ""){
                 if(reply.text != ""){
                     poster()
+                    username.text = ""
+                    reply.text = ""
                 } else{
                     print("Please put include a message")
                 }
