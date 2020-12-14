@@ -12,6 +12,8 @@ class DateViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var date: Date!
+    
     @IBAction func onSelectButton(_ sender: Any) {
         callback?(datePicker.date)
         self.dismiss(animated: true, completion: nil)
@@ -20,6 +22,7 @@ class DateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        datePicker.date = date
         // Do any additional setup after loading the view.
     }
     

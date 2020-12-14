@@ -74,7 +74,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let articleTitle = UILabel(frame: CGRect(x: 0, y: 0, width: titleView.bounds.size.width, height: titleView.bounds.size.height))
         articleTitle.attributedText = NSMutableAttributedString(string: articles[indexPath.row].title, attributes: strokeTextAttributes)
         articleTitle.textColor = .white
-        articleTitle.font = UIFont(name: "Gill Sans", size: 30)
+        articleTitle.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
         articleTitle.numberOfLines = 5
         articleTitle.textAlignment = .center
 
