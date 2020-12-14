@@ -118,6 +118,7 @@ class IndTeamsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "athleteCell", for: indexPath)
         cell.textLabel?.font = UIFont(name: "Helvetica Neue Bold Italic", size: 16)
+        let label = UILabel.init(frame: CGRect(x:0,y:0,width:130,height:30))
         if(tabSR.selectedSegmentIndex == 0) {
             let athlete = athletes[indexPath.row]
             if(athlete.number == "") {
@@ -126,6 +127,7 @@ class IndTeamsViewController: UIViewController, UITableViewDelegate, UITableView
             else {
                 cell.textLabel!.text = "#" + athlete.number + " " + athlete.name
             }
+            cell.accessoryView = label
         }
         else {
             let game = games[indexPath.row]
@@ -136,7 +138,6 @@ class IndTeamsViewController: UIViewController, UITableViewDelegate, UITableView
 //            else {
 //                cell?.detailTextLabel?.text = game.status
 //            }
-            let label = UILabel.init(frame: CGRect(x:0,y:0,width:130,height:30))
             label.font = UIFont(name: "Helvetica Neue Bold Italic", size: 18)
             label.textAlignment = .right
             label.adjustsFontSizeToFitWidth = true
